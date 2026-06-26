@@ -1,1 +1,3 @@
-campus skill exchange platform
+# SkillBridge
+
+Campus Skill Exchange Platform
