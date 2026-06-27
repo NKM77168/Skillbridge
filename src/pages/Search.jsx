@@ -1,6 +1,10 @@
 import "../styles/Login.css"
+import { useState } from "react"
+import { Link } from "react-router-dom"
 
 function Search(){
+
+const [search,setSearch]=useState("")
 
 return(
 
@@ -8,37 +12,27 @@ return(
 
 <div className="login">
 
-<h1>
+<h1>SEARCH SKILLS</h1>
 
-SEARCH SKILLS
-
-</h1>
+<input
+placeholder="Search skills..."
+value={search}
+onChange={(e)=>setSearch(e.target.value)}
+/>
 
 <p>
 
-Find students to learn from
+Searching: {search}
 
 </p>
-
-<input
-placeholder="Search skill"
-/>
-
-<button>
-
-SEARCH
-
-</button>
 
 <div>
 
-<p>
+<h3>Krishna</h3>
 
-Niranjana
+<p>Can Teach: React</p>
 
-Can Teach: Python
-
-</p>
+<Link to="/requests">
 
 <button>
 
@@ -46,6 +40,47 @@ CONNECT
 
 </button>
 
+</Link>
+
+</div>
+
+<br/>
+
+<div>
+
+<h3>Niranjana</h3>
+
+<p>Can Teach: Canva</p>
+
+<Link to="/requests">
+
+<button>
+
+CONNECT
+
+</button>
+
+</Link>
+
+</div>
+
+<br/>
+
+<div>
+
+<h3>Nesrin</h3>
+
+<p>Can Teach: C Programming</p>
+
+<Link to="/requests">
+
+<button>
+
+CONNECT
+
+</button>
+
+</Link>
 </div>
 
 </div>

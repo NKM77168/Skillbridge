@@ -1,77 +1,56 @@
 import { useState } from "react"
-import "../styles/Login.css"
+import { Link } from "react-router-dom"
 
 function Profile(){
+
 const [name,setName]=useState("")
-
 const [department,setDepartment]=useState("")
-
 const [teach,setTeach]=useState("")
-
 const [learn,setLearn]=useState("")
+
 return(
 
 <div className="container">
 
 <div className="login">
 
-<h1>
-
-PROFILE
-
-</h1>
-
-<p>
-
-Build your skill profile
-
-</p>
+<h1>MY PROFILE</h1>
 
 <input
-value={name}
-onChange={(e)=>
-
-setName(e.target.value)
-
-}
 placeholder="Full Name"
+value={name}
+onChange={(e)=>setName(e.target.value)}
 />
 
 <input
-value={department}
-onChange={(e)=>
-
-setDepartment(e.target.value)
-
-}
 placeholder="Department"
+value={department}
+onChange={(e)=>setDepartment(e.target.value)}
 />
 
 <input
-value={teach}
-onChange={(e)=>
-
-setTeach(e.target.value)
-
-}
 placeholder="Skills I Teach"
+value={teach}
+onChange={(e)=>setTeach(e.target.value)}
 />
 
 <input
-value={learn}
-onChange={(e)=>
-
-setLearn(e.target.value)
-
-}
 placeholder="Skills I Want To Learn"
+value={learn}
+onChange={(e)=>setLearn(e.target.value)}
 />
+
+<Link to="/dashboard">
 
 <button>
 
 SAVE PROFILE
 
 </button>
+
+</Link>
+<p>{name}</p>
+
 </div>
 
 </div>
