@@ -9,46 +9,25 @@ return(
 
 <div className="login">
 
-<h1>
-
-SKILLBRIDGE
-
-</h1>
-
+<h1>SKILLBRIDGE</h1>
 <p>
 
-Welcome Student
+Welcome to SkillBridge
 
 </p>
 
+<p>Learn • Teach • Connect</p>
+
 <Link to="/profile">
-
-<button>
-
-MY PROFILE
-
-</button>
-
+<button>MY PROFILE</button>
 </Link>
 
 <Link to="/search">
-
-<button>
-
-SEARCH SKILLS
-
-</button>
-
+<button>SEARCH SKILLS</button>
 </Link>
 
 <Link to="/requests">
-
-<button>
-
-REQUESTS
-
-</button>
-
+<button>REQUESTS</button>
 </Link>
 
 </div>
