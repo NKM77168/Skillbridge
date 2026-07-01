@@ -1,35 +1,50 @@
+import "../styles/Login.css"
 import { useState } from "react"
 
 function Profile(){
 
-const[name,setName]=useState("")
-const[skill,setSkill]=useState("")
+const existing=
 
-const saveProfile=async()=>{
+JSON.parse(
+localStorage.getItem(
+"profile"
+)
+)
 
-await fetch(
-"http://localhost:5000/api/users/profile",
+||
+
 {
+name:"",
+skill:""
+}
 
-method:"POST",
+const[name,setName]=
+useState(
+existing.name
+)
 
-headers:{
-"Content-Type":"application/json"
-},
+const[skill,setSkill]=
+useState(
+existing.skill
+)
 
-body:JSON.stringify({
+const saveProfile=()=>{
+
+localStorage.setItem(
+
+"profile",
+
+JSON.stringify({
 
 name,
 skill
 
 })
 
-}
-
 )
 
 alert(
-"Profile Saved"
+"Profile Updated"
 )
 
 }
@@ -47,34 +62,65 @@ PROFILE
 </h1>
 
 <input
-placeholder="Your Name"
+
+value={name}
+
+placeholder="Name"
 
 onChange={
 (e)=>
 setName(
 e.target.value
-)}
+)
+}
+
 />
 
 <input
+
+value={skill}
+
 placeholder="Skill"
 
 onChange={
 (e)=>
 setSkill(
 e.target.value
-)}
+)
+}
+
 />
 
 <button
+
 onClick={
 saveProfile
 }
+
 >
 
 SAVE
 
 </button>
+
+<br/><br/>
+
+<div className="card">
+
+<h3>
+
+{name}
+
+</h3>
+
+<p>
+
+Skill:
+{skill}
+
+</p>
+
+</div>
 
 </div>
 

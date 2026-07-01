@@ -2,43 +2,17 @@ import "../styles/Login.css"
 
 function Requests(){
 
-const acceptRequest=()=>{
-
-const history=
+const requests=
 
 JSON.parse(
 localStorage.getItem(
-"history"
+"requests"
 )
 )
 
 ||
 
 []
-
-history.push({
-
-name:"Krishna",
-
-skill:"React"
-
-})
-
-localStorage.setItem(
-
-"history",
-
-JSON.stringify(
-history
-)
-
-)
-
-alert(
-"Added to History"
-)
-
-}
 
 return(
 
@@ -52,49 +26,49 @@ REQUESTS
 
 </h1>
 
-<div className="card">
+{
+
+requests.map(
+
+(item,index)=>(
+
+<div
+key={index}
+className="card"
+>
 
 <h3>
 
-Krishna
+{item.name}
 
 </h3>
 
 <p>
 
-Requested Connection
+Requested:
+{item.skill}
 
 </p>
 
-<button
-
-onClick={
-acceptRequest
-}
-
->
+<button>
 
 ACCEPT
 
 </button>
 
-<button
-
-onClick={()=>
-
-alert(
-"Request Rejected"
-)
-
-}
-
->
+<button>
 
 REJECT
 
 </button>
 
 </div>
+
+)
+
+)
+
+}
 
 </div>
 

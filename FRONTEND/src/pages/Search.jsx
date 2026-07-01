@@ -1,27 +1,47 @@
-import { useEffect } from "react"
+import "../styles/Login.css"
 import { useState } from "react"
 
 function Search(){
 
-const[data,setData]=useState([])
+const users=[
 
-useEffect(()=>{
+{
+name:"Krishna",
+skill:"C Programming"
+},
 
-fetch(
-"http://localhost:5000/api/users/allprofiles"
+{
+name:"Niranjana",
+skill:"React"
+},
+
+{
+name:"Nesrin",
+skill:"Java"
+}
+
+]
+
+const[search,setSearch]=
+useState("")
+
+const filtered=
+
+users.filter(
+
+(user)=>
+
+user.skill
+.toLowerCase()
+
+.includes(
+
+search
+.toLowerCase()
+
 )
 
-.then(
-(res)=>
-res.json()
 )
-
-.then(
-(data)=>
-setData(data)
-)
-
-},[])
 
 return(
 
@@ -35,9 +55,24 @@ SEARCH SKILLS
 
 </h1>
 
+<input
+
+placeholder="Search skill"
+
+onChange={
+(e)=>
+setSearch(
+e.target.value
+)
+}
+
+/>
+
+<br/><br/>
+
 {
 
-data.map(
+filtered.map(
 
 (user,index)=>(
 
@@ -63,6 +98,38 @@ Can Teach:
 
 onClick={()=>{
 
+const requests=
+
+JSON.parse(
+
+localStorage.getItem(
+"requests"
+)
+
+)
+
+||
+
+[]
+
+requests.push({
+
+name:user.name,
+
+skill:user.skill
+
+})
+
+localStorage.setItem(
+
+"requests",
+
+JSON.stringify(
+requests
+)
+
+)
+
 alert(
 "Request Sent"
 )
@@ -74,7 +141,6 @@ alert(
 CONNECT
 
 </button>
-
 </div>
 
 )

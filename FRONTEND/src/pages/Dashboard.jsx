@@ -1,19 +1,35 @@
 import "../styles/Login.css"
 import { Link } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
 
 function Dashboard(){
 
-const navigate=useNavigate()
-
 const user=
-localStorage.getItem("user")
+localStorage.getItem(
+"user"
+)
+
+const profile=
+
+JSON.parse(
+localStorage.getItem(
+"profile"
+)
+)
+
+||
+
+{
+name:"Not Set",
+skill:"Not Set"
+}
 
 const logout=()=>{
 
-localStorage.removeItem("user")
+localStorage.removeItem(
+"user"
+)
 
-navigate("/")
+window.location="/"
 
 }
 
@@ -25,44 +41,104 @@ return(
 
 <h1>
 
-SKILLBRIDGE
+DASHBOARD
 
 </h1>
 
 <h3>
 
-Welcome {user}
+Welcome,
+{user}
 
 </h3>
 
+<div className="card">
+
+<h3>
+
+{profile.name}
+
+</h3>
+
+<p>
+
+Skill:
+{profile.skill}
+
+</p>
+
+</div>
+
 <br/>
 
+<Link to="/profile">
+
+<button>
+
+PROFILE
+
+</button>
+
+</Link>
+
+<br/><br/>
+
 <Link to="/search">
-<button>SEARCH</button>
+
+<button>
+
+SEARCH
+
+</button>
+
 </Link>
 
 <br/><br/>
 
 <Link to="/requests">
-<button>REQUESTS</button>
+
+<button>
+
+REQUESTS
+
+</button>
+
 </Link>
 
 <br/><br/>
 
 <Link to="/history">
-<button>HISTORY</button>
-</Link>
 
-<br/><br/>
+<button>
 
-<Link to="/leaderboard">
-<button>LEADERBOARD</button>
+HISTORY
+
+</button>
+
 </Link>
 
 <br/><br/>
 
 <Link to="/notifications">
-<button>NOTIFICATIONS</button>
+
+<button>
+
+NOTIFICATIONS
+
+</button>
+
+</Link>
+
+<br/><br/>
+
+<Link to="/leaderboard">
+
+<button>
+
+LEADERBOARD
+
+</button>
+
 </Link>
 
 <br/><br/>

@@ -188,3 +188,26 @@ text-decoration:none;
 color:black;
 
 }
+.dark{
+
+background:black;
+
+color:white;
+
+}
+
+.dark .login{
+
+background:#222;
+
+color:white;
+
+}
+
+.dark button{
+
+background:#444;
+
+color:white;
+
+}
