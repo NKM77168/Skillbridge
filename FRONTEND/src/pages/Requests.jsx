@@ -1,7 +1,44 @@
 import "../styles/Login.css"
-import { Link } from "react-router-dom"
 
 function Requests(){
+
+const acceptRequest=()=>{
+
+const history=
+
+JSON.parse(
+localStorage.getItem(
+"history"
+)
+)
+
+||
+
+[]
+
+history.push({
+
+name:"Krishna",
+
+skill:"React"
+
+})
+
+localStorage.setItem(
+
+"history",
+
+JSON.stringify(
+history
+)
+
+)
+
+alert(
+"Added to History"
+)
+
+}
 
 return(
 
@@ -9,63 +46,55 @@ return(
 
 <div className="login">
 
-<h1>REQUESTS</h1>
+<h1>
+
+REQUESTS
+
+</h1>
 
 <div className="card">
 
-<h3>Krishna</h3>
+<h3>
+
+Krishna
+
+</h3>
 
 <p>
 
-Wants to learn C Programming
+Requested Connection
 
 </p>
 
-<button>
+<button
 
-ACCEPTED
+onClick={
+acceptRequest
+}
 
-</button>
-
-</div>
-
-<br/>
-
-<div>
-
-<h3>Niranjana</h3>
-
-<p>
-
-Wants to learn React
-
-</p>
-
-<button>
+>
 
 ACCEPT
 
 </button>
 
-<button>
+<button
+
+onClick={()=>
+
+alert(
+"Request Rejected"
+)
+
+}
+
+>
 
 REJECT
 
 </button>
 
 </div>
-
-<br/>
-
-<Link to="/history">
-
-<button>
-
-VIEW HISTORY
-
-</button>
-
-</Link>
 
 </div>
 

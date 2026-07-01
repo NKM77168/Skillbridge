@@ -1,6 +1,27 @@
-import "../styles/Login.css"
+import { useEffect,useState } from "react"
 
 function Leaderboard(){
+
+const[data,setData]=
+useState([])
+
+useEffect(()=>{
+
+fetch(
+"http://localhost:5000/api/users/leaderboard"
+)
+
+.then(
+(res)=>
+res.json()
+)
+
+.then(
+(data)=>
+setData(data)
+)
+
+},[])
 
 return(
 
@@ -8,35 +29,48 @@ return(
 
 <div className="login">
 
-<h1>LEADERBOARD</h1>
+<h1>
 
-<div className="card">
+LEADERBOARD
 
-<h3>🥇 Krishna</h3>
+</h1>
 
-<p>120 points</p>
+{
+
+data.map(
+
+(user,index)=>(
+
+<div
+key={index}
+className="card"
+>
+
+<h3>
+
+#{index+1}
+
+</h3>
+
+<p>
+
+{user.name}
+
+</p>
+
+<p>
+
+⭐ {user.points}
+
+</p>
 
 </div>
 
-<br/>
+)
 
-<div className="card">
+)
 
-<h3>🥈 Niranjana</h3>
-
-<p>90 points</p>
-
-</div>
-
-<br/>
-
-<div className="card">
-
-<h3>🥉 Nesrin</h3>
-
-<p>80 points</p>
-
-</div>
+}
 
 </div>
 

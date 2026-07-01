@@ -1,7 +1,33 @@
 import "../styles/Login.css"
-import { Link } from "react-router-dom"
+import { useEffect } from "react"
+import { useState } from "react"
 
 function History(){
+
+const[data,setData]=
+useState([])
+
+useEffect(()=>{
+
+const history=
+
+JSON.parse(
+
+localStorage.getItem(
+"history"
+)
+
+)
+
+||
+
+[]
+
+setData(
+history
+)
+
+},[])
 
 return(
 
@@ -9,54 +35,50 @@ return(
 
 <div className="login">
 
-<h1>EXCHANGE HISTORY</h1>
+<h1>
 
-<div className="card">
+EXCHANGE HISTORY
 
-<h3>Krishna</h3>
+</h1>
+
+{
+
+data.map(
+
+(item,index)=>(
+
+<div
+key={index}
+className="card"
+>
+
+<h3>
+
+{item.name}
+
+</h3>
 
 <p>
 
-Learned: C Programming
+Learned:
+{item.skill}
 
 </p>
 
 <p>
 
-Status: Completed
+Status:
+Completed
 
 </p>
 
 </div>
 
-<br/>
+)
 
-<div className="card">
+)
 
-<h3>Niranjana</h3>
-
-<p>
-
-Learned: React
-
-</p>
-
-<p>
-
-Status: Completed
-
-</p>
-
-</div>
-<Link to="/leaderboard">
-
-<button>
-
-VIEW LEADERBOARD
-
-</button>
-
-</Link>
+}
 
 </div>
 

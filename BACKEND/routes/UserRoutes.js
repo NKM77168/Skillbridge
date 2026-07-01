@@ -1,13 +1,13 @@
-const express=
+const express =
 require("express")
 
-const router=
+const router =
 express.Router()
 
 const {
 register
 }=require(
-"../controllers/userController"
+"../controllers/UserController"
 )
 
 router.post(
@@ -15,5 +15,5 @@ router.post(
 register
 )
 
-module.exports=
+module.exports =
 router

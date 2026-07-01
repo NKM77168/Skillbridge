@@ -1,10 +1,27 @@
-import "../styles/Login.css"
+import { useEffect } from "react"
 import { useState } from "react"
-import { Link } from "react-router-dom"
 
 function Search(){
 
-const [search,setSearch]=useState("")
+const[data,setData]=useState([])
+
+useEffect(()=>{
+
+fetch(
+"http://localhost:5000/api/users/allprofiles"
+)
+
+.then(
+(res)=>
+res.json()
+)
+
+.then(
+(data)=>
+setData(data)
+)
+
+},[])
 
 return(
 
@@ -12,76 +29,59 @@ return(
 
 <div className="login">
 
-<h1>SEARCH SKILLS</h1>
+<h1>
 
-<input
-placeholder="Search skills..."
-value={search}
-onChange={(e)=>setSearch(e.target.value)}
-/>
+SEARCH SKILLS
+
+</h1>
+
+{
+
+data.map(
+
+(user,index)=>(
+
+<div
+key={index}
+className="card"
+>
+
+<h3>
+
+{user.name}
+
+</h3>
 
 <p>
 
-Searching: {search}
+Can Teach:
+{user.skill}
 
 </p>
 
-<div>
+<button
 
-<h3>Krishna</h3>
+onClick={()=>{
 
-<p>Can Teach: React</p>
+alert(
+"Request Sent"
+)
 
-<Link to="/requests">
+}}
 
-<button>
-
-CONNECT
-
-</button>
-
-</Link>
-
-</div>
-
-<br/>
-
-<div>
-
-<h3>Niranjana</h3>
-
-<p>Can Teach: Canva</p>
-
-<Link to="/requests">
-
-<button>
+>
 
 CONNECT
 
 </button>
 
-</Link>
-
 </div>
 
-<br/>
+)
 
-<div>
+)
 
-<h3>Nesrin</h3>
-
-<p>Can Teach: C Programming</p>
-
-<Link to="/requests">
-
-<button>
-
-CONNECT
-
-</button>
-
-</Link>
-</div>
+}
 
 </div>
 
